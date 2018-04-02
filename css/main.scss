@@ -1,0 +1,966 @@
+//colors
+$bg-color: #f5f5f5;
+$icon-color: #45bc0c;
+$btn-color: #fcb500;
+$text-color: #292929;
+$danger-color: red;
+$white-color: white;
+$border-color: #dedede;
+$bg-green: #246b03;
+$disadv-color: #969696;
+
+//fonts-family
+@font-face {
+  font-family: 'Proxima Nova Rg';
+  src: url('../fonts/ProximaNova-Regular.woff2') format('woff2'),
+  url('../fonts/ProximaNova-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova Bold';
+  src: url('../fonts/ProximaNova-Bold.woff2') format('woff2'),
+  url('../fonts/ProximaNova-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@mixin reg {
+  font-family: "Proxima Nova Rg", sans-serif;
+}
+
+@mixin bold {
+  font-family: "Proxima Nova Bold", sans-serif;
+}
+
+//basic settings
+html {
+  font-size: 10px;
+}
+
+body {
+  @include reg;
+}
+
+header {
+  height: 7rem;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button, input, a, .slick-active, textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
+//typography
+.phone {
+  //padding: 2rem;
+  //font-size: 2rem;
+  a {
+    @include reg;
+    margin-right: 3rem;
+    height: 7rem;
+    line-height: 7rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $text-color;
+    display: inline-block;
+  }
+}
+
+.button {
+  @include reg;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  color: $white-color;
+  background: $btn-color;
+  border-radius: 8px;
+  border: 0;
+  transition: all 0.2s;
+  &:hover {
+    cursor: pointer;
+    background-color: darken($btn-color, 5%);
+  }
+}
+
+//main
+.main {
+  padding: 3rem;
+  background: url("../img/main-bg.png") no-repeat;
+  //-webkit-background-size: 100%;
+  //background-size: 100%;
+  &-content {
+    margin-top: 10rem;
+  }
+  &-title {
+    text-align: left;
+    h1 {
+      @include bold;
+      line-height: 1.45;
+      margin-top: 0;
+      margin-bottom: 4rem;
+      font-size: 4rem;
+      font-weight: 700;
+    }
+    span {
+      //border: solid 1px;
+      display: inline-block;
+      font-size: 1.8rem;
+      font-weight: 600;
+      padding: 2rem 4rem;
+      background: $icon-color;
+      color: $white-color;
+      width: 22.5rem;
+      text-align: center;
+      strong {
+        display: inline;
+        font-size: 3rem;
+        font-weight: 600;
+        color: $white-color;
+      }
+    }
+    &-oplata {
+      @include bold;
+      display: block;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 2rem 0;
+
+      line-height: 2.6rem;
+      text-transform: uppercase;
+      color: $text-color;
+    }
+  }
+  &-subtitle {
+    @include reg;
+    margin-bottom: 4rem;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: $text-color;
+  }
+  &-form {
+    background: $white-color;
+    height: auto;
+    text-align: center;
+    //border: 1px solid;
+    padding: 7rem 5rem;
+    &-header {
+      margin-bottom: 3rem;
+      font-size: 1.8rem;
+      text-align: center;
+      strong {
+        font-size: 1.9rem;
+      }
+    }
+    small {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+  }
+}
+
+//form styles
+.form {
+  background: $white-color;
+  height: auto;
+  text-align: center;
+  font-size: 1.8rem;
+  //border: 1px solid;
+  padding: 7rem 5rem;
+  &-header {
+    margin-bottom: 3rem;
+    font-size: 1.8rem;
+    text-align: center;
+    strong {
+      font-size: 1.9rem;
+    }
+  }
+  small {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  &-input {
+    display: block;
+    border: #dedede solid 1px;
+    width: 100%;
+    border-radius: 3px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  &-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    background-color: $white-color;
+    display: inline-block;
+  }
+  button {
+    margin: 1.5rem 0;
+    display: block;
+    width: 100%;
+    height: 5.5rem;
+    font-size: 1.6rem;
+  }
+}
+
+section {
+  padding: 10rem 0;
+  .section-header {
+    text-align: center;
+    margin: 2rem 0 10rem;
+    margin-top: 0;
+    @include bold;
+    h2 {
+      @include bold;
+      font-size: 3.6rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+    &_light {
+      color: $white-color;
+    }
+  }
+  .features {
+    &-block {
+      text-align: center;
+      h3 {
+        @include bold;
+        font-size: 2rem;
+        margin: 3rem 0;
+      }
+      p {
+        display: inline-block;
+        width: 80%;
+        font-size: 1.4rem;
+      }
+    }
+    &-img {
+      img {
+        height: 8rem;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  .arrow {
+    top: 50%;
+    transform: scaleY(-50%);
+    position: absolute;
+    z-index: 99;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+
+    background-size: 70%;
+  }
+  .prev {
+    left: 0;
+    background: #fff url("../img/keyboard-left-arrow-button.png") center no-repeat;
+  }
+  .next {
+    right: 0;
+    transform: rotate(180deg);
+    background: #fff url("../img/keyboard-left-arrow-button.png") center no-repeat;
+  }
+}
+
+//оформление вплывающих окон
+.popup {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.5);
+  &-form {
+    margin-top: 3rem;
+    padding: 0;
+  }
+  &-close {
+    @include bold;
+    position: absolute;
+    top: -1.5rem;
+    right: -2rem;
+    width: 2rem;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    color: $white-color;
+    font-size: 3rem;
+  }
+  &-content {
+    position: fixed;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    background-color: $white-color;
+    padding: 4rem 6rem;
+    text-align: center;
+  }
+  &-header {
+    @include bold;
+  }
+}
+
+//оформление секции с ценами
+.price {
+  background-color: $bg-green;
+  &-header-btn {
+    margin-top: 2.5rem;
+  }
+  &-button {
+    text-align: right;
+  }
+  &-block {
+    padding: 1rem 3rem 4rem;
+    min-height: 50rem;
+    //height: 100%;
+    background: $white-color;
+    box-shadow: 7px 12px 21px 0px rgba(0, 0, 0, 0.17);
+    text-align: center;
+    h4 {
+      font-size: 1.9rem;
+      @include bold;
+      margin: 3rem 0;
+    }
+    img {
+      display: inline-block;
+      width: 100%;
+      min-width: 20rem;
+    }
+  }
+  &-list {
+    padding: 0;
+    //height: auto;
+    min-height: 14rem;
+    line-height: 2rem;
+    font-size: 1.6rem;
+    list-style: none;
+    li {
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-right: 1rem;
+        vertical-align: middle;
+        background: url("../img/checked.png") no-repeat center;
+      }
+    }
+  }
+  &-tag {
+    font-size: 1.9rem;
+    @include bold;
+    display: block;
+    margin: 2rem;
+  }
+}
+
+.feedback {
+  position: relative;
+  background: #fff url("../img/feedback/bg-feedback.png");
+  p {
+    font-size: 1.6rem;
+  }
+  .hand {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20%;
+    z-index: 2;
+  }
+  .media {
+    margin-top: 3rem;
+
+    &-object {
+      width: 50px;
+      height: 48px;
+    }
+    &-body {
+      font-size: 1.4rem; /* Приближение из-за подстановки шрифтов */
+      font-weight: 400;
+      margin-left: 0.6rem;
+    }
+    h4 {
+      @include bold;
+    }
+  }
+  &-txt {
+    position: relative;
+    padding: 1rem;
+    border: 2px solid $icon-color;
+    font-style: italic;
+    margin-top: 2rem;
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      top: -2rem;
+      left: 5rem;
+      width: 2rem;
+      height: 2rem;
+      border: 2px solid $icon-color;
+      background-color: $white-color;
+      border-bottom: none;
+      border-top-right-radius: 100px;
+    }
+  }
+  &-form {
+    position: relative;
+    z-index: 2;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    //padding: 4rem 10rem;
+    &-header {
+      font-size: 2rem;
+      //@include bold;
+    }
+    label {
+      transform: translate(-50%, 0.8rem);
+    }
+    button {
+      //min-width: 30rem;
+      //width: 30rem;
+      margin: auto;
+    }
+    //form{
+    //  display: inline-block;
+    //}
+  }
+  &-prev-btn {
+    left: -4rem;
+  }
+  &-next-btn {
+    right: -4rem;
+    img {
+      transform: rotate(180deg);
+    }
+  }
+  &-slider {
+    padding: 5rem 6rem;
+    background-color: $white-color;
+    box-shadow: 6px 10px 18px 0px rgba(0, 0, 0, 0.11);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    &-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4rem;
+      height: 5rem;
+      background: $icon-color;
+      border: none;
+      img {
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+}
+
+.scheme {
+  padding: 0;
+  background: #fff url("../img/scheme/hand-scheme.png") bottom -15rem right -15rem no-repeat;
+  background-size: 40%;
+
+  h2 {
+    margin-top: 4rem;
+  }
+  &-subtitle {
+    margin-top: 5rem;
+  }
+  &-block {
+    margin-bottom: 2rem;
+    min-height: 30rem;
+    h3 {
+      @include bold;
+      font-size: 2rem;
+      margin: 3rem 0;
+    }
+    p {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+.all-inclusive {
+  background-color: #f5f5f5;
+  h2{
+    color: $icon-color;
+  }
+  .media {
+    min-height: 8rem;
+    h4 {
+      @include bold;
+      font-size: 1.6rem;
+      //transform: translateY(50%);
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    font-size: 1.3rem;
+  }
+  .circle {
+    display: inline-block;
+    background-color: $icon-color;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    &-border {
+      padding: 0.3rem;
+      display: inline-block;
+      width: 5rem;
+      height: 5rem;
+      border: 2px solid $icon-color;
+      text-align: center;
+      line-height: 4rem;
+      border-radius: 50%;
+      color: $white-color;
+      @include bold;
+      font-size: 1.9rem;
+    }
+  }
+}
+
+.advantage {
+  position: relative;
+  padding: 5rem 0;
+  &-woman{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 30rem;
+    margin-left: -19rem;
+  }
+  &-block {
+    border: 5px solid;
+    padding: 2rem;
+    min-height: 35rem;
+  }
+  ul {
+    width: 100%;
+    padding: 2rem 0;
+    list-style: none;
+    font-size: 1.6rem; /* Приближение из-за подстановки шрифтов */
+    font-weight: 400;
+    line-height: 1.125; /* Приближение из-за подстановки шрифтов */
+    text-align: left;
+    li {
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        content: '';
+        width: 3rem;
+        height: 3rem;
+        display: inline-block;
+        text-align: left;
+        margin-right: 3rem;
+      }
+      padding-left: 3.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+  }
+  h3 {
+    color: #313131;
+    font-size: 2.1rem; /* Приближение из-за подстановки шрифтов */
+    font-weight: 700;
+    line-height: 0.857; /* Приближение из-за подстановки шрифтов */
+    text-align: left;
+    @include bold;
+    padding: 2rem 0;
+  }
+  &-negative-block {
+    border-color: $disadv-color;
+    h3 {
+      color: $disadv-color;
+    }
+    ul li:before{
+      background: #fff url("../img/advatages/disadvantage.png") no-repeat center;
+      -webkit-box-sizing: 70%;
+      -moz-box-sizing: 70%;
+      box-sizing: 70%;
+    }
+  }
+  &-positive-block {
+    border-color: $icon-color;
+    ul li:before{
+      background: #fff url("../img/advatages/advantage.png") no-repeat center;
+      -webkit-box-sizing: 70%;
+      -moz-box-sizing: 70%;
+      box-sizing: 70%;
+    }
+  }
+}
+
+.material{
+  background: #fff url("../img/feedback/bg-feedback.png") 0 0 no-repeat;
+  h2{
+    margin-bottom: 5rem;
+  }
+  a{
+    color: $icon-color;
+    font-size: 1.6rem;
+    border-bottom: dotted 1px $icon-color;
+    &:hover{
+      color: darken($icon-color,10%);
+    }
+  }
+  &-slider{
+    padding-top: 3rem;
+  }
+  &-block{
+    h3{
+      font-size: 2rem;
+      @include bold;
+      margin: 2rem auto 3rem;
+    }
+    p{
+      font-size: 1.6rem;
+      min-height: 5rem;
+
+    }
+    img{
+      min-height: 17rem;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  &-offer{
+    font-size: 1.6rem;
+    margin-top: 4rem;
+  }
+}
+
+.work{
+  background: #fff url("../img/bg-work.png") center no-repeat;
+  text-align: left;
+  h1{
+
+    font-size: 4rem;
+    @include bold;
+    line-height: 1.45;
+    margin-bottom: 5rem;
+  }
+  h2{
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.service{
+  background: $bg-green;
+  img{
+
+  }
+  p{
+    margin: 5rem;
+    font-size: 2rem;
+  }
+  &-block{
+    margin-bottom: 3rem;
+    h5{
+      font-size: 2rem;
+      @include bold;
+      margin: 3rem auto;
+    }
+  }
+}
+
+.contact{
+  background: #fff url("../img/bg-contact.png") 60%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  h2{
+    text-align: left;
+    font-size: 3.6rem;/* Приближение из-за подстановки шрифтов */
+    @include bold;
+    margin: 0 0 2.5rem;
+  }
+  p{
+    font-size: 2rem;
+    margin: 1.5rem 0;
+  }
+  a{
+    &:hover{
+      border-bottom: 1px solid;
+    }
+  }
+  &-form{
+    margin: 5rem 0;
+    background: $white-color;
+    min-height: 30rem;
+    height: 30%;
+    h2{
+      margin-top: 0;
+      margin-bottom: 3rem;
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+}
+
+.footer{
+  padding: 3rem;
+  text-align: center;
+  strong{
+    font-size: 2rem;
+  }
+  p{
+    padding: 0;
+    font-size: 1.7rem;
+  }
+}
+
+@media(max-width: 991px) {
+  .form{
+    button{
+      padding: 1rem;
+      width: 100%;
+    }
+    margin: 2rem auto;
+    width: 80%;
+    box-shadow: 7px 12px 21px 0px rgba(0, 0, 0, 0.17);
+  }
+  .main {
+    text-align: center;
+    background-position: top right;
+    -webkit-background-size: cover;
+    background-size: cover;
+    &-form{
+      //width: 60%;
+      margin: 0 auto;
+    }
+  }
+  .main-content {
+    margin-top: 3rem;
+  }
+  .main-title {
+    font-size: 6rem;
+    text-align: center;
+    padding-bottom: 3rem;
+  }
+  .price {
+    &-button {
+      //display: inline;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    &-header-btn {
+      margin-top: 0;
+      //margin-bottom: 2rem;
+    }
+    &-block {
+      margin: 2rem auto;
+      //width: 60%;
+    }
+  }
+  .feedback{
+    &-form{
+      margin: 2rem auto;
+      //width: 80%;
+      //box-shadow: 7px 12px 21px 0px rgba(0, 0, 0, 0.17);
+    }
+  }
+  .section-header_light {
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .scheme {
+    background: none;
+    &-block {
+      margin-top: 1rem;
+      h3 {
+        margin: 1rem 0;
+      }
+    }
+  }
+  .work{
+    background: #fff url("../img/bg-work.png") ;
+    -webkit-background-size: cover;
+    background-size: cover;
+    &-text{
+      text-align: center;
+    }
+    &-form{
+      //width: 50%;
+    }
+  }
+  .all-inclusive{
+    text-align: left;
+    .media-body{
+      font-size: 2.4rem;
+    }
+  }
+  .material{
+    &-phone{
+      display: block;
+    }
+
+  }
+  .feedback{
+    &-form{
+      //width: 80%;
+    }
+  }
+  .advantage{
+    &-block{
+      min-height: 40rem;
+    }
+    &-woman{
+      display: none;
+    }
+  }
+  .contact{
+    background: #fff url("../img/bg-contact.png") 0 0 repeat;
+    h2{
+      text-align: center;
+    }
+    &-map{
+      text-align: center;
+      iframe{
+        width: 100%;
+      }
+    }
+    &-form{
+      width: 50%;
+    }
+  }
+  .footer{
+    img{
+      vertical-align: center;
+    }
+strong{
+}
+    &-text{
+      text-align: right;
+    }
+  }
+}
+
+@media(max-width: 768px) {
+
+  html {
+    font-size: 10px;
+  }
+  .phone, .logo {
+    text-align: center;
+  }
+  //.logo{
+  //  text-align: center;
+  //}
+  .main-content, .main-title {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .price {
+    &-button {
+      //display: inline;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    &-header-btn {
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+    &-block {
+      margin-top: 2rem;
+    }
+  }
+  .section-header_light {
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .advantage {
+    &-block {
+      min-height: auto;
+      margin-bottom: 3rem;
+    }
+  }
+  .work {
+    background-position: left 0;
+    padding: 2rem 0 0 0;
+    text-align: center;
+    &-form {
+      margin-top: 6rem;
+    }
+  }
+  .service{
+    &-block{
+      h5{
+        margin: 1.5rem;
+      }
+    }
+  }
+  .feedback{
+    &-form{
+      width: 80%;
+    }
+  }
+}
+
+@media(max-width: 576px) {
+    //html {
+    //  font-size: 10px;
+    //}
+    body {
+      text-align: center;
+    }
+    .main {
+      background-position: top left;
+      &-content {
+        margin-top: 3rem;
+      }
+      &-header {
+        width: 100%;
+      }
+    }
+    .price {
+      &-button {
+        //display: inline;
+        text-align: center;
+        padding: 2rem 0;
+      }
+      &-header-btn {
+        margin-top: 0;
+        margin-bottom: 2rem;
+      }
+      &-block {
+        margin-top: 2rem;
+      }
+    }
+    .section-header_light {
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .feedback {
+      &-prev-btn {
+        left: 0;
+      }
+      &-next-btn {
+        right: 0;
+      }
+    }
+  }
